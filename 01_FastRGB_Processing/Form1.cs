@@ -16,5 +16,18 @@ namespace _01_FastRGB_Processing
         {
             InitializeComponent();
         }
+
+        FastPixel f = new FastPixel();
+        
+        // Open Image File
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Bitmap bmp = new Bitmap(openFileDialog1.FileName);
+                f.bmp2RGB(bmp);
+                pictureBox1.Image = bmp;
+            }
+        }
     }
 }

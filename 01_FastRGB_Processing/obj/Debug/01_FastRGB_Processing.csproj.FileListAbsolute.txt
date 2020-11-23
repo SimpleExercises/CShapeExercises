@@ -1,0 +1,10 @@
+D:\CShapeExercises\01_FastRGB_Processing\bin\Debug\01_FastRGB_Processing.exe.config
+D:\CShapeExercises\01_FastRGB_Processing\bin\Debug\01_FastRGB_Processing.exe
+D:\CShapeExercises\01_FastRGB_Processing\bin\Debug\01_FastRGB_Processing.pdb
+D:\CShapeExercises\01_FastRGB_Processing\obj\Debug\01_FastRGB_Processing.csprojAssemblyReference.cache
+D:\CShapeExercises\01_FastRGB_Processing\obj\Debug\_01_FastRGB_Processing.Form1.resources
+D:\CShapeExercises\01_FastRGB_Processing\obj\Debug\_01_FastRGB_Processing.Properties.Resources.resources
+D:\CShapeExercises\01_FastRGB_Processing\obj\Debug\01_FastRGB_Processing.csproj.GenerateResource.cache
+D:\CShapeExercises\01_FastRGB_Processing\obj\Debug\01_FastRGB_Processing.csproj.CoreCompileInputs.cache
+D:\CShapeExercises\01_FastRGB_Processing\obj\Debug\01_FastRGB_Processing.exe
+D:\CShapeExercises\01_FastRGB_Processing\obj\Debug\01_FastRGB_Processing.pdb
