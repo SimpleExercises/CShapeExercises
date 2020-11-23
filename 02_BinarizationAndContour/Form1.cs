@@ -29,9 +29,17 @@ namespace _02_BinarizationAndContour
             }
         }
 
-        private void grayBaseOnGreenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void grayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = f.grayImg(f.greenArr);
+        }
+
+        private void saveImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image.Save(saveFileDialog1.FileName);
+            }
         }
     }
 }
