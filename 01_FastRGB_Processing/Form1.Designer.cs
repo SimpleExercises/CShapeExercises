@@ -108,12 +108,14 @@ namespace _01_FastRGB_Processing
             this.binaryToolStripMenuItem.Name = "binaryToolStripMenuItem";
             this.binaryToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.binaryToolStripMenuItem.Text = "Binary";
+            this.binaryToolStripMenuItem.Click += new System.EventHandler(this.binaryToolStripMenuItem_Click);
             // 
             // negativeToolStripMenuItem
             // 
             this.negativeToolStripMenuItem.Name = "negativeToolStripMenuItem";
             this.negativeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.negativeToolStripMenuItem.Text = "Negative";
+            this.negativeToolStripMenuItem.Click += new System.EventHandler(this.negativeToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 

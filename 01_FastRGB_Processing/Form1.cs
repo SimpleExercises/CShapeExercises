@@ -78,5 +78,37 @@ namespace _01_FastRGB_Processing
             }
             pictureBox1.Image = f.grayImg(rgLowImg);
         }
+
+        private void binaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            byte[,] binarizationImg = new byte[f.imgX, f.imgY];
+            for (int j = 0; j < f.imgY; j++)
+            {
+                for (int i = 0; i < f.imgX; i++)
+                {
+                    if (f.greenArr[i, j] < 128)
+                    {
+                        binarizationImg[i, j] = 1;
+                    }
+                }
+                pictureBox1.Image = f.binaryImg(binarizationImg);
+            }
+        }
+
+        private void negativeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            byte[,] negativeImg = new byte[f.imgX, f.imgY];
+            for (int j = 0; j < f.imgY; j++)
+            {
+                for (int i = 0; i < f.imgX; i++)
+                {
+                    if (f.greenArr[i, j] < 128)
+                    {
+                        negativeImg[i, j] = (byte)(255 - f.greenArr[i, j]);
+                    }
+                }
+                pictureBox1.Image = f.grayImg(negativeImg);
+            }
+        }
     }
 }
