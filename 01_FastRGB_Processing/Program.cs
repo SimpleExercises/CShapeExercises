@@ -37,6 +37,65 @@ namespace _01_FastRGB_Processing
             System.Runtime.InteropServices.Marshal.Copy(rgb, 0, ptr, allPixelBits); //Config rgb array data to bmp data
             bmp.UnlockBits(imgData); //unlock bmp bits
         }
+        public void bmp2RGB(Bitmap bmp)
+        {
+            imgX = bmp.Width; imgY = bmp.Height;
+            redArr = new byte[imgX, imgY]; greenArr = new byte[imgX, imgY]; blueArr = new byte[imgX, imgY];
+
+            lockBMP(bmp);
+            for (int j = 0; j < imgY; j++)
+            {
+                int Lj = j * imgData.Stride;
+                for (int i = 0; i < imgX; i++)
+                {
+                    int k = Lj + i * eachPixelBits;
+                    redArr[i, j] = rgb[k + 2];
+                    greenArr[i, j] = rgb[k + 1];
+                    blueArr[i, j] = rgb[k];
+                }
+            }
+            unlockBMP(bmp);
+        }
+        public Bitmap grayImg(byte[,] b)
+        {
+            Bitmap bmp = new Bitmap(b.GetLength(0), b.GetLength(1));
+            lockBMP(bmp);
+            for (int j = 0; j < b.GetLength(1); j++)
+            {
+                for (int i = 0; i < b.GetLength(0); i++)
+                {
+                    int k = j * eachRowLenBits + i * eachPixelBits;
+                    byte c = b[i, j];
+                    rgb[k] = c; rgb[k + 1] = c; rgb[k + 2] = c;
+                    rgb[k + 3] = 255;
+                }
+            }
+            unlockBMP(bmp);
+            return bmp;
+        }
+        public Bitmap binaryImg(byte[,] b)
+        {
+            Bitmap bmp = new Bitmap(b.GetLength(0), b.GetLength(1));
+            lockBMP(bmp);
+            for (int j = 0; j < b.GetLength(1); j++)
+            {
+                for (int i = 0; i < b.GetLength(0); i++)
+                {
+                    int k = j * eachRowLenBits + i * eachPixelBits;
+                    if (b[i, j] == 1)
+                    {
+                        rgb[k] = 0; rgb[k + 1] = 0; rgb[k + 2] = 0;
+                    }
+                    else
+                    {
+                        rgb[k] = 255; rgb[k + 1] = 255; rgb[k + 2] = 255;
+                    }
+                    rgb[k + 3] = 255;
+                }
+            }
+            unlockBMP(bmp);
+            return bmp;
+        }
     }
 
     static class Program
