@@ -110,5 +110,13 @@ namespace _01_FastRGB_Processing
                 pictureBox1.Image = f.grayImg(negativeImg);
             }
         }
+
+        private void saveImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image.Save(saveFileDialog1.FileName);
+            }
+        }
     }
 }
