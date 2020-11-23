@@ -29,5 +29,54 @@ namespace _01_FastRGB_Processing
                 pictureBox1.Image = bmp;
             }
         }
+
+        private void redToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = f.grayImg(f.redArr);
+        }
+
+        private void greenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = f.grayImg(f.greenArr);
+        }
+
+        private void blueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = f.grayImg(f.blueArr);
+        }
+
+        private void rGBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            byte[,] rgbImg = new byte[f.imgX, f.imgY];
+            for (int j = 0; j < f.imgY; j++)
+            {
+                for (int i = 0; i < f.imgX; i++)
+                {
+                    byte gray = (byte)((byte)(f.redArr[i, j] * 0.299 + f.greenArr[i, j] * 0.587) + f.blueArr[i, j] * 0.114);
+                    rgbImg[i, j] = gray;
+                }
+            }
+            pictureBox1.Image = f.grayImg(rgbImg);
+        }
+
+        private void rGLowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            byte[,] rgLowImg = new byte[f.imgX, f.imgY];
+            for (int j = 0; j < f.imgY; j++)
+            {
+                for (int i = 0; i < f.imgX; i++)
+                {
+                    if (f.redArr[i, j] > f.greenArr[i, j])
+                    {
+                        rgLowImg[i, j] = f.greenArr[i, j];
+                    }
+                    else
+                    {
+                        rgLowImg[i, j] = f.redArr[i, j];
+                    }
+                }
+            }
+            pictureBox1.Image = f.grayImg(rgLowImg);
+        }
     }
 }
