@@ -1,0 +1,10 @@
+D:\CShapeExercises\02_BinarizationAndContour\bin\Debug\02_BinarizationAndContour.exe.config
+D:\CShapeExercises\02_BinarizationAndContour\bin\Debug\02_BinarizationAndContour.exe
+D:\CShapeExercises\02_BinarizationAndContour\bin\Debug\02_BinarizationAndContour.pdb
+D:\CShapeExercises\02_BinarizationAndContour\obj\Debug\02_BinarizationAndContour.csprojAssemblyReference.cache
+D:\CShapeExercises\02_BinarizationAndContour\obj\Debug\_02_BinarizationAndContour.Form1.resources
+D:\CShapeExercises\02_BinarizationAndContour\obj\Debug\_02_BinarizationAndContour.Properties.Resources.resources
+D:\CShapeExercises\02_BinarizationAndContour\obj\Debug\02_BinarizationAndContour.csproj.GenerateResource.cache
+D:\CShapeExercises\02_BinarizationAndContour\obj\Debug\02_BinarizationAndContour.csproj.CoreCompileInputs.cache
+D:\CShapeExercises\02_BinarizationAndContour\obj\Debug\02_BinarizationAndContour.exe
+D:\CShapeExercises\02_BinarizationAndContour\obj\Debug\02_BinarizationAndContour.pdb
