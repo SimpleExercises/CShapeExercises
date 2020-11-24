@@ -77,6 +77,7 @@ namespace _02_BinarizationAndContour
             this.averageToolStripMenuItem.Name = "averageToolStripMenuItem";
             this.averageToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.averageToolStripMenuItem.Text = "Average";
+            this.averageToolStripMenuItem.Click += new System.EventHandler(this.averageToolStripMenuItem_Click);
             // 
             // binToolStripMenuItem
             // 

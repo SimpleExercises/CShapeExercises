@@ -41,5 +41,41 @@ namespace _02_BinarizationAndContour
                 pictureBox1.Image.Save(saveFileDialog1.FileName);
             }
         }
+
+        // Average indensity block 
+        int Gdim = 40; // Divise indensity size 40*40 block
+        int[,] Th; // Average indentsity of each block (threshold)
+        private void averageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int blockX = f.imgX / Gdim, blockY = f.imgY / Gdim;
+            Th = new int[blockX, blockY]; // block array           
+            //accumulation intensity of each block
+            for (int i = 0; i < f.imgX; i++)
+            {
+                int x = i / Gdim;
+                for (int j = 0; j < f.imgY; j++)
+                {
+                    int y = j / Gdim;                  
+                    Th[x, y] += f.greenArr[i, j];
+                }
+            }
+            // Create intensity of each block
+            byte[,] A = new byte[f.imgX, f.imgY];
+            for (int i = 0; i < blockX; i++)
+            {
+                for (int j = 0; j < blockY; j++)
+                {
+                    Th[i, j] /= Gdim * Gdim;
+                    for (int ii = 0; ii < Gdim; ii++)
+                    {
+                        for (int jj = 0; jj < Gdim; jj++)
+                        {
+                            A[i * Gdim + ii, j * Gdim + jj] = (byte)Th[i, j];
+                        }
+                    }
+                }
+            }
+            pictureBox1.Image = f.grayImg(A);
+        }
     }
 }
