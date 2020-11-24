@@ -48,7 +48,7 @@ namespace _02_BinarizationAndContour
         private void averageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int blockX = f.imgX / Gdim, blockY = f.imgY / Gdim;
-            Th = new int[blockX, blockY]; // block array           
+            Th = new int[blockX+1, blockY+1]; // block array           
             //accumulation intensity of each block
             for (int i = 0; i < f.imgX; i++)
             {
