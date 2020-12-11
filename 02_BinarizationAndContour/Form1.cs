@@ -48,14 +48,14 @@ namespace _02_BinarizationAndContour
         private void averageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int blockX = f.imgX / Gdim, blockY = f.imgY / Gdim;
-            Th = new int[blockX+1, blockY+1]; // block array           
+            Th = new int[blockX + 1, blockY + 1]; // block array           
             //accumulation intensity of each block
             for (int i = 0; i < f.imgX; i++)
             {
                 int x = i / Gdim;
                 for (int j = 0; j < f.imgY; j++)
                 {
-                    int y = j / Gdim;                  
+                    int y = j / Gdim;
                     Th[x, y] += f.greenArr[i, j];
                 }
             }
@@ -76,6 +76,50 @@ namespace _02_BinarizationAndContour
                 }
             }
             pictureBox1.Image = f.grayImg(A);
+        }
+
+        byte[,] Z;
+        private void binToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Z = new byte[f.imgX, f.imgY];
+            for (int i = 1; i < f.imgX - 1; i++)
+            {
+                int x = i / Gdim;
+                for (int j = 1; j < f.imgY; j++)
+                {
+                    int y = j / Gdim;
+                    if (f.greenArr[i, j] < Th[x, y])
+                    {
+                        Z[i, j] = 1;
+                    }
+                }
+            }
+            pictureBox1.Image = f.binaryImg(Z);
+        }
+
+        byte[,] Q;
+        private void contourToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Q = Outline(Z);
+            pictureBox1.Image = f.binaryImg(Q);
+        }
+
+        private byte[,] Outline(byte[,] b)
+        {
+            byte[,] Q = new byte[f.imgX, f.imgY];
+            for (int i = 1; i < f.imgX - 1; i++)
+            {
+                for (int j = 1; j < f.imgY - 1; j++)
+                {
+                    if (b[i, j] == 0) continue;
+                    if (b[i - 1, j] == 0) { Q[i, j] = 1; continue; }
+                    if (b[i + 1, j] == 0) { Q[i, j] = 1; continue; }
+                    if (b[i - 1, j] == 0) { Q[i, j] = 1; continue; }
+                    if (b[i, j - 1] == 0) { Q[i, j] = 1; continue; }
+                    if (b[i, j + 1] == 0) { Q[i, j] = 1; continue; }
+                }
+            }
+            return Q;
         }
     }
 }
